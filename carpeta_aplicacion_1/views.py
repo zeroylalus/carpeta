@@ -8,6 +8,7 @@ from django.shortcuts import render
 # ctrl + space : mostrar sugerencias
 from django.http import HttpResponse, JsonResponse
 from .models import clase_proyectos, clase_tareas
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -44,6 +45,11 @@ def view_funcion_proyectos(view_funcion_proyectos_param_request):
     queryset_proyectos = list(clase_proyectos.objects.values())
     return JsonResponse(queryset_proyectos, safe=False)
 
-def view_funcion_tareas(view_funcion_tareas_param_request):
-    return HttpResponse('texto: tareas')
+def view_funcion_tareas(view_funcion_tareas_param_request, var_url_id):
+    #nota: como el get_object_or_404 remplaza el buscar el objeto especificando el modelo/clase/tabla
+    #var_get_titulo_tarea = clase_tareas.objects.get(id = var_url_id)
+    # el espacio se cambia a %20 por que hace un encode, esta codificando la url
+    # antes de usar render hemos solo devuelto strings
+    var_get_titulo_tarea = get_object_or_404(clase_tareas, id = var_url_id)
+    return HttpResponse('texto: el titulo de la tarea del id en la ruta es = "%s"' % var_get_titulo_tarea.titulo_clase_tareas)
 

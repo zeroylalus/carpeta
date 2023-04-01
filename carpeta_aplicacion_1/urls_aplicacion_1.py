@@ -32,5 +32,5 @@ urlpatterns = [
     # rutas que van a recibir y enviar información:
 
     path('proyectos/',view_funcion_proyectos),
-    path('tareas/',view_funcion_tareas),
+    path('tareas/<int:var_url_id>',view_funcion_tareas),
 ]
