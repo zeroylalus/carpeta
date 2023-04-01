@@ -63,6 +63,8 @@ MINI CLASE SHELL? para interactuar con database
 
 CARPETAS:
 
+si las carpetas que tiene un nombre reservado vscode las identifica?, o almenos la carpeta templeates tiene un nombre reservado // olvidalo si no tiene el nombre predeterminado django se chispa
+
 PROYECTO GLOBAL Y APLICACIONES
 'python manage.py startapp carpeta_aplicacion_1' : crea carpeta de applicacion interna del proyecto global
     carpeta_proyecto_django : administra 'proyecto global'
@@ -75,16 +77,21 @@ django no requiere consultas SQL x modulo ORM base de datos interactua atraves d
 -------------------------------
 
 ORGANIGRAMA: 
-¿como se le llama a esta modalidad o proceso para crear y si existen?
+¿en django como se le llama a este proceso? ¿existen otros metodos de trabajo?
 
 . creamos un proyecto con 'django-admin startproject proyecto'
 . creamos una app con 'python manage.py startapp app'
-. agregamos nuestra app a la lista de apps del archivo settings dentro de proyecto
-. dentro de app en archivo views creamos función para enviar contenido al navegador
-. dentro de app creamos archivo que aloja rutas que ejecutan funciones importadas de views
-. incluimos urls dentro de app, al archivo 'urls' dentro de proyecto con módulo include.
-. Creamos modelo dentro de app, en archivo models con clase: proyectos, tipo de dato: texto
-. Creamos modelo dentro de app, en archivo models con clase: tareas, 1er tipo de dato: texto, 2do tipo de dato: texto, 3er tipo de dato: foreignkey que tiene relacion con proyectos
+. en proyecto en archivo settings agregamos nombre de app a la lista de apps
+. en app en archivo views creamos función para enviar contenido al navegador
+. en app creamos archivo que aloja urls_app que ejecutan funciones importadas de views
+. en proyecto en archivo urls incluimos urls_app con módulo include.
+. en app en archivo models creamos modelos y establecemos, clase, tipo de dato y relación
+
+. BREAK: sheel para interactuar con database
+. BREAK: ruta parámetro modelo
+. BREAK: django admin superuser self __str__ models
+
+. en app creamos carpeta templeates y archivo template.html
 
 -------------------------------
 

@@ -10,7 +10,7 @@ from django.db import models
 . se crea clase tiene parámetros/hereda modelos de djando, que llama a clase model
 . ya es tabla/clase/modelo con 2 columnas (id, nombre)
 . SQL permite especificar el tipo de dato
-. __str__ metodo/función permite mostrar algo a la interfaz """
+. __str__ metodo/función permite mostrar algo a la interfaz / proporciona una representación en forma de cadena personalizada del objeto de la clase que muestra el valor del atributo  """
 class clase_proyectos (models.Model):
     nombre_clase_proyectos = models.CharField(max_length=200)
     def __str__ (self_proyecto):
