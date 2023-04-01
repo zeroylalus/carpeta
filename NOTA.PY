@@ -17,4 +17,6 @@ DJANGO:
 'django-admin startproject nombre_proyecto_django .' : CREAR PROYECTO DJANGO ( ' .' AL FINAL HACE QUE NO CREE DOBLE CARPETA)
 '__pycache__' : la carpeta guarda código que ya compilo python para que se ejecute mas rápido
 
+solo un ejemplo para ver si es add
+
 """
