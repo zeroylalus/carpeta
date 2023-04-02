@@ -21,8 +21,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+# como se han separado las urls en otro archivo, se necesitan integrar al este archivo de urls original con el módulo include() incluye un bloque de url de otra app
+from django.urls import path, include
+#importar views puede ser 'carpeta_aplicacion_1 import views' y en función 'views.view_fun_hello'
+
+
+""" ---> NOTA:
+1. crea nueva 'rutas/url' (nombre en blanco = 'rutas/url o dominio principal o localhost 3000')
+2. 'ruta_acerca_de/' = 'http://127.0.0.1:8000/ruta_acerca_de'
+3. cada vez que entra en 'ruta_acerca_de/' ejecuta función 'view_fun_acerca_de'
+3.1 se ejecuta código cada vez que una rutas/url es visitada
+4. carpetas aplicaciones pueden guardar su propio archivo de rutas/urls
+4.1 si este archivo deja de tener funciones de vistas de una carpeta/app entonces se puede borrar de aqui e importarlos desde el nuevo archivo urls que se creé 
+4.2 este archivo url es el módulo principal configuraciones globales
+4.3 si el primer parámetro de path tiene una ruta, esta presede de todo el bloque de urls de include(,)
+"""
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('carpeta_aplicacion_1.urls_aplicacion_1'))
 ]

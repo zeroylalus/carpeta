@@ -68,6 +68,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # agregamos nuestra app para que funcionen los modelos y ejecute las migraciones
+    'carpeta_aplicacion_1'
 ]
 
 MIDDLEWARE = [
@@ -110,6 +112,32 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+""" BUSCAR 'DJANGO DATABASES' EN DOCUMENTACIÓN:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql', # solo agregar la base de datos
+        'OPTIONS': { # opciones de conexión
+            'service': 'my_service',
+            'passfile': '.my_pgpass',
+        },
+    }
+}
+
+# puedo crear un archivo aparte de mis opciones de conexión
+
+.pg_service.conf
+[my_service]
+host=localhost
+user=USER
+dbname=NAME
+port=5432
+
+.my_pgpass
+localhost:5432:NAME:USER:PASSWORD
+
+"""
+
 
 
 # Password validation
