@@ -7,8 +7,10 @@
 # Jasonresponse, formato q entiende navegador, representar conjunto elementos (queryset)
 # ctrl + space : mostrar sugerencias
 from django.http import HttpResponse, JsonResponse
+from django.shortcuts import get_object_or_404, render, redirect
+
 from .models import tabla_proyectos, tabla_tareas
-from django.shortcuts import get_object_or_404, render
+from .formularios import tabla_crear_tarea, tabla_crear_proyecto
 
 # Create your views here.
 
@@ -57,7 +59,7 @@ def view_funcion_acerca_de(view_funcion_acerca_param_request):
 
 def view_funcion_proyectos(view_funcion_proyectos_param_request):
     queryset_proyectos = tabla_proyectos.objects.all()
-    return render(view_funcion_proyectos_param_request, 'proyectos.html',{
+    return render(view_funcion_proyectos_param_request, 'proyectos/proyectos.html',{
         'ref_html_proyectos': queryset_proyectos
     })
 
@@ -69,11 +71,57 @@ def view_funcion_proyectos(view_funcion_proyectos_param_request):
 . buscar, enviar, mostrar, etc. datos de database con params, vars en ruta
 . def view_funcion_tareas(view_funcion_tareas_param_request, var_url_id):
 . var_get_titulo_tarea = get_object_or_404(tabla_tareas, id = var_url_id)
+. () #paréntesis al final 'ejecuta la clase/modelo/tabla' pero no lo necesitaba en este caso
+
+print(view_funcion_crear_tarea_param_request.GET['crear_tarea_col_titulo'])
+print(view_funcion_crear_tarea_param_request.GET['crear_tarea_col_descripcion'])
+
+
 """
 
 def view_funcion_tareas(view_funcion_tareas_param_request):
     queryset_tareas = tabla_tareas.objects.all()
-    return render(view_funcion_tareas_param_request, 'tareas.html',{
+    return render(view_funcion_tareas_param_request, 'tareas/tareas.html',{
         'ref_html_tareas': queryset_tareas
     })
 
+def view_funcion_crear_proyecto(view_funcion_crear_proyecto_param_request):
+
+    if view_funcion_crear_proyecto_param_request.method == 'GET':
+        return render(view_funcion_crear_proyecto_param_request, 'proyectos/crear proyecto.html',{'ref_html_crear_proyecto': tabla_crear_proyecto})
+    else:
+        tabla_proyectos.objects.create(
+        tab_proyectos_col_nombres = 
+        view_funcion_crear_proyecto_param_request.POST['crear_proyecto_col_nombre'])
+        return redirect('/ruta_proyectos/')
+
+
+def view_funcion_crear_tarea(view_funcion_crear_tarea_param_request):
+
+    if view_funcion_crear_tarea_param_request.method == 'GET':
+        return render(view_funcion_crear_tarea_param_request, 'tareas/crear tarea.html',{'ref_html_crear_tarea': tabla_crear_tarea})
+    else:
+        tabla_tareas.objects.create(
+        tab_tareas_col_nombre = 
+        view_funcion_crear_tarea_param_request.POST['crear_tarea_col_nombre'],
+        tab_tareas_col_descripcion = 
+        view_funcion_crear_tarea_param_request.POST['crear_tarea_col_descripcion'],
+        tab_tareas_col_proyecto_ref_id = 
+        view_funcion_crear_tarea_param_request.POST['crear_tarea_col_proyecto'])
+        return redirect('ruta_tareas/')
+        
+
+
+
+"""
+. cuando visita la página de esta forma no existe el título descripción
+. si visitamos 'create task' sin parámetros me indica 'título no existe' entonces al momento de insertar da error 
+. no debemos insertar datos con método GET este sirve para mostrar datos en la interfaz
+. metodo POST para q servidor reciba datos (cuando el formulario va a enviar los datos)
+. en archivo crear tarea en el formulario establecemos método post en ves de action
+. en views establecemos si request.método == GET (sirve para mostrar) voy a renderizar la interfaz
+. caso contrario si visita otra vez otro método (ELSE/cualquier otro metodo) voy a procesar/guardar/insertan los datos a la base de datos 
+. cuando termine de guarda voy a cambiar de página
+. por el momento en vez de usar el metodo GET lo cambia a POST por que así lo establecimos en el formulario
+
+"""

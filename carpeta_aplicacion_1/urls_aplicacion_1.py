@@ -1,5 +1,5 @@
 """ ---> NOTA:
-. RELACION: ARCHIVO VIEWS Y SUS FUNCIONS Y AS RUTAS SE CREAN
+. RELACION: ARCHIVO VIEWS Y SUS FUNCIONS Y LAS RUTAS SE CREAN
 . este archivo fue creado por nosotros, por que cada app puede guardar sus propias urls/rutas, y django no lo hace automáticamente.
 . donde se encuentren las rutas/urls deben de importarse las views para ejecuten el código de las funciones convencionales
 . como se han separado en este archivo estas urls de esta app, se necesitan integrar al archivo urls original con include()
@@ -20,6 +20,9 @@ from .views import view_funcion_index
 from .views import view_funcion_proyectos
 from .views import view_funcion_tareas
 
+from .views import view_funcion_crear_tarea
+from .views import view_funcion_crear_proyecto
+
 
 urlpatterns = [
 
@@ -35,7 +38,10 @@ urlpatterns = [
 
     # rutas que van a recibir y enviar información:
 
-    path('proyectos/',view_funcion_proyectos),
-    path('tareas/',view_funcion_tareas),
+    path('ruta_proyectos/',view_funcion_proyectos),
+    path('ruta_tareas/',view_funcion_tareas),
+
+    path('ruta_crear_tarea/',view_funcion_crear_tarea),
+    path('ruta_crear_proyecto/',view_funcion_crear_proyecto),
 
 ]
