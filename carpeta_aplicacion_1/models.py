@@ -11,17 +11,24 @@ from django.db import models
 . ya es tabla/clase/modelo con 2 columnas (id, nombre)
 . SQL permite especificar el tipo de dato
 . __str__ metodo/función permite mostrar algo a la interfaz / proporciona una representación en forma de cadena personalizada del objeto de la clase que muestra el valor del atributo  """
-class clase_proyectos (models.Model):
-    nombre_clase_proyectos = models.CharField(max_length=200)
+class tabla_proyectos (models.Model):
+    tab_proyectos_col_nombres = models.CharField(max_length=200)
+
     def __str__ (self_proyecto):
-        return self_proyecto.nombre_clase_proyectos
+        return self_proyecto.tab_proyectos_col_nombres
 
 """---> NOTAS:
 . foreignkey = esta tabla tiene relacion con otra tabla y lo relaciona con ids
-. 'on_delete = models.CASCADE': si se elimine elemento de tabla asociada, se elimina todos los elementos de esta tabla """
-class clase_tareas (models.Model):
-    titulo_clase_tareas = models.CharField(max_length=200)
-    descripcion_clase_tareas = models.TextField()
-    n_proyecto_clase_tareas = models.ForeignKey(clase_proyectos,on_delete=models.CASCADE)
+. 'on_delete = models.CASCADE': si se elimine elemento de tabla asociada, se elimina todos los elementos de esta tabla 
+. puedo hacer actualizaciones de columnas a las tablas cuando necesite, sin olvidar migrar
+. puedo cambiarle el nombre a las tablas y columnas, cambiando todas las referencias, migrando y aceptando los cambios en la terminal del ORM, los archivos migration se referencian en cadena si alguno de la cadena esta erroneo ni te cuento carnal
+. no se por que no respeta el orden de aparicion de las columnas en la base de datos
+"""
+class tabla_tareas (models.Model):
+    tab_tareas_col_nombre = models.CharField(max_length=200)
+    tab_tareas_col_descripcion = models.TextField()
+    tab_tareas_col_proyecto_ref = models.ForeignKey(tabla_proyectos,on_delete=models.CASCADE)
+    tab_tareas_col_terminado = models.BooleanField(default=False)
+
     def __str__ (self_tarea):
-        return self_tarea.titulo_clase_tareas + ' - ' + self_tarea.n_proyecto_clase_tareas.nombre_clase_proyectos
+        return self_tarea.tab_tareas_col_nombre + ' - ' + self_tarea.tab_tareas_col_proyecto_ref.tab_proyectos_col_nombres

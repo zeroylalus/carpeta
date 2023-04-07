@@ -6,9 +6,9 @@ from django.contrib import admin
 # Register your models here.
 
 # puedo importar los modelos/clases/tablas que ya hice en la carpeta modelos
-from .models import clase_proyectos, clase_tareas
+from .models import tabla_proyectos, tabla_tareas
 
 # y puedo agregarlos al panel de control por defecto:
-admin.site.register(clase_proyectos)
-admin.site.register(clase_tareas)
+admin.site.register(tabla_proyectos)
+admin.site.register(tabla_tareas)
 

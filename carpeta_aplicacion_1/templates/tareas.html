@@ -8,7 +8,27 @@
 </head>
 <body>
 
+    {% extends 'diseños_heredados/base_heredada_1.html' %}
+
+    {% block var_bloque_inicio_contenido %}
+
     <h1>TAREAS.HTML</h1>
     
+    {% for bucle_jinja_tareas in ref_html_tareas %}
+
+    <article>
+        <H2>TAREA: {{ bucle_jinja_tareas.tab_tareas_col_nombre }} 
+            {% if bucle_jinja_tareas.tab_tareas_col_terminado == False %}
+            📝 {% else %} 🔴 {% endif %}</H2> 
+        <h4>DESCRIPCIÓN: {{ bucle_jinja_tareas.tab_tareas_col_descripcion }}</h4>
+        <h5>PROYECTO: {{ bucle_jinja_tareas.tab_tareas_col_proyecto_ref.tab_proyectos_col_nombres }}</h5>
+        <button> REINICIAR </button>
+        <button> TERMINAR </button>
+    </article>
+
+    {% endfor %}
+
+    {% endblock %}
+
 </body>
 </html>

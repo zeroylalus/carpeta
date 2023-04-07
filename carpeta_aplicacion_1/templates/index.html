@@ -1,3 +1,12 @@
+<!-- ESTOS SON ARCHIVOS CREADOS ATRAVES DE UN MODULO DE PYTHON 'TEMPLATE ENGINE'
+. permiten ejecutar lógica
+. el navegador/frontend recibe otro html ya procesado
+. diccionario_titulo puede tambien ser una consulta de base de datos
+. TEMPLATE INHERITANCE: interfaz q puede ser heredada/reutilizada en otras interfaces
+. EXTENDS: parámetro nombre archivo
+. BLOCK: decirle que en esta seccion habra mas contenido y así la pagina que lo herede podra insertar en esa parte su contenido
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +17,19 @@
 </head>
 <body>
 
-    <h1>INDEX.HTML</h1>
+    {% extends 'diseños_heredados/base_heredada_2.html' %}
+
+    {% block var_bloque_inicio_contenido_admin %}
+
+    <h3> {{ ref_html_titulo }} </h3>
     
     <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non quasi facere dolores minima architecto laudantium possimus voluptates numquam quam quae excepturi facilis porro odio distinctio itaque accusamus recusandae modi repellat dolor, totam illo nemo sequi rem. Animi possimus fuga consectetur accusantium nihil nisi repudiandae debitis deleniti repellat quas quasi nobis nostrum cum quaerat, ad optio quam corrupti accusamus fugiat a iusto molestias facilis perspiciatis. Dignissimos magni, eveniet voluptatum eum in, incidunt odit aperiam eius repellendus sequi itaque. Vero minus nostrum repellendus nam unde omnis magnam, labore praesentium non quasi sed sequi nemo. Placeat molestiae alias nesciunt, quod consequuntur repellendus porro.</P>
+
+    {% endblock %}
+
+    <h1>INDEX.HTML</h1>
+    
+    
     
 </body>
 </html>

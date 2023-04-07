@@ -27,9 +27,9 @@ i44k3112
 
 
 -------------------------------
+
 PARAMS:
 recibir datos desde navegador para pasarlo por operaciones de una base de datos
- 
 
 -------------------------------
 
@@ -63,7 +63,7 @@ MINI CLASE SHELL? para interactuar con database
 
 CARPETAS:
 
-si las carpetas que tiene un nombre reservado vscode las identifica?, o almenos la carpeta templeates tiene un nombre reservado // olvidalo si no tiene el nombre predeterminado django se chispa
+si las carpetas que tiene un nombre reservado vscode las identifica?, o almenos la carpeta templeates tiene un nombre reservado // olvidalo si no tiene el nombre predeterminado django no la reconoce
 
 PROYECTO GLOBAL Y APLICACIONES
 'python manage.py startapp carpeta_aplicacion_1' : crea carpeta de applicacion interna del proyecto global
@@ -91,7 +91,11 @@ ORGANIGRAMA:
 . BREAK: ruta parámetro modelo
 . BREAK: django admin superuser self __str__ models
 
-. en app creamos carpeta templeates y archivo template.html
+. en app creamos carpeta templates y archivo templete.html con etiquetas button, a, div, etc.
+. en app en archivo views creamos diccionario que relaciona los modelos y el archivo html
+. en app en templates en archivo templete creamos jinja loop/conditionals para mostrar elementos de los modelos
+. en app creamos carpeta diseños y archivo base y creamos con etiquetas nav,ul,li,a una navegación y con el metodo block/endblock de jinja referenciamos donde estará el contenido de archivo templete
+. en app en templates en archivo templete usamos el método extends de jinja para referenciar la navegacion de archivo base y agregamos block/endblock para referenciar donde estara el contenido
 
 -------------------------------
 

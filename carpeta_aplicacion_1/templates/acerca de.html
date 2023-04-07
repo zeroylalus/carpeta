@@ -8,9 +8,16 @@
 </head>
 <body>
 
+    {% extends 'diseños_heredados/base_heredada_1.html' %}
+
+    {% block var_bloque_inicio_contenido %}
+
     <h1>ACERCA DE.HTML</h1>
+    <h3> {{ ref_html_usuario }} </h3>
 
     <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, consectetur quaerat illo vitae blanditiis, vel laudantium sed ipsam tempora itaque molestias dignissimos repudiandae sapiente delectus ex asperiores unde at magni esse eveniet voluptas ab reprehenderit! Eaque accusamus vero, doloribus ea itaque soluta quaerat nostrum possimus non dignissimos ratione alias ipsum similique modi, necessitatibus magnam, rerum earum officia ex sed deserunt reprehenderit laboriosam. Reprehenderit repellendus officia quis architecto maxime ea culpa vero labore quae dolor expedita quas, eaque, nisi ipsum quaerat asperiores, commodi voluptas in accusantium neque sequi magni inventore cumque debitis? Qui pariatur ratione sapiente neque doloribus tempora amet. Asperiores.</P>
-    
+
+    {% endblock %}
+
 </body>
 </html>
