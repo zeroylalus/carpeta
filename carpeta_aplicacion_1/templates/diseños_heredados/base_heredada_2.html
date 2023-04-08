@@ -8,19 +8,24 @@
 </head>
 <body>
 
-    <h3>DISEÑO HEREDADO: USUARIO_ADMIN</h3>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'archivos css/css principal.css' %}">
 
-    <nav><ul>
-        <li><a href="/">ENTRADA</a></li>
-        <li><a href="/ruta_acerca_de">DOCUMENTACIÓN</a></li>
-        <li><a href="/ruta_tareas">ADMINISTRAR TAREAS</a></li>
-        <li><a href="/ruta_proyectos">ADMINISTRAR PROYECTOS</a></li>
-        <li><a href="/ruta_crear_tarea">ADMINISTRAR LA CREACION DE TAREAS</a></li>
-        <li><a href="/ruta_crear_proyecto">ADMINISTRAR LA CREACION DE PROYECTOS</a></li>
+    <h3 class="contenedor">DISEÑO HEREDADO: USUARIO_ADMIN</h3>
+
+    <nav class="barra_navegacion_global"><ul>
+        <li><a href="{% url 'url name index' %}">ENTRADA</a></li>
+        <li><a href="{% url 'url name acerca de' %}">DOCUMENTACIÓN</a></li>
+        <li><a href="{% url 'url name tareas' %}">ADMINISTRAR TAREAS</a></li>
+        <li><a href="{% url 'url name proyectos' %}">ADMINISTRAR PROYECTOS</a></li>
+        <li><a href="{% url 'url name crear tarea' %}">ADMINISTRAR LA CREACION DE TAREAS</a></li>
+        <li><a href="{% url 'url name crear proyecto' %}">ADMINISTRAR LA CREACION DE PROYECTOS</a></li>
     </ul></nav>
 
-    {% block var_bloque_inicio_contenido_admin %}
-    {% endblock %}
+    <main class="contenedor">
+        {% block var_bloque_inicio_contenido_admin %}
+        {% endblock %}
+    </main>
 
 </body>
 </html>

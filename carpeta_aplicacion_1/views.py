@@ -93,7 +93,7 @@ def view_funcion_crear_proyecto(view_funcion_crear_proyecto_param_request):
         tabla_proyectos.objects.create(
         tab_proyectos_col_nombres = 
         view_funcion_crear_proyecto_param_request.POST['crear_proyecto_col_nombre'])
-        return redirect('/ruta_proyectos/')
+        return redirect('url name proyectos')
 
 
 def view_funcion_crear_tarea(view_funcion_crear_tarea_param_request):
@@ -108,9 +108,7 @@ def view_funcion_crear_tarea(view_funcion_crear_tarea_param_request):
         view_funcion_crear_tarea_param_request.POST['crear_tarea_col_descripcion'],
         tab_tareas_col_proyecto_ref_id = 
         view_funcion_crear_tarea_param_request.POST['crear_tarea_col_proyecto'])
-        return redirect('ruta_tareas/')
-        
-
+        return redirect('url name tareas')
 
 
 """
@@ -125,3 +123,11 @@ def view_funcion_crear_tarea(view_funcion_crear_tarea_param_request):
 . por el momento en vez de usar el metodo GET lo cambia a POST por que así lo establecimos en el formulario
 
 """
+
+def view_funcion_detalle_proyecto(view_funcion_detalle_proyecto_param_request, detalle_proyecto):
+    detalle_proyecto = get_object_or_404(tabla_proyectos,id=detalle_proyecto)
+    # en filter no se puede usar id, puede que sea solo una propiedad especial, y nombre_id si es el nombre de una columna y tiene otro acceso o propiedad
+    detalle_proyecto_tareas = tabla_tareas.objects.filter(tab_tareas_col_proyecto_ref_id=detalle_proyecto)
+    #detalle_proyecto = tabla_proyectos.objects.get(id=detalle_proyecto)
+    return render(view_funcion_detalle_proyecto_param_request, 'proyectos/detalle proyecto.html',{'ref_html_detalle_proyecto':detalle_proyecto,
+                    'ref_html_detalle_proyecto_tareas':detalle_proyecto_tareas})

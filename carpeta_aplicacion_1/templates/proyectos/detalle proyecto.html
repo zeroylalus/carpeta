@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {% extends 'diseños_heredados/base_heredada_1.html' %}
+
+    {% block var_bloque_inicio_contenido %}
+
+    <h1>DETALLE DEL PROYECTO</h1>
+
+    <h2 class="tipo_cartas"> {{ ref_html_detalle_proyecto.tab_proyectos_col_nombres }} </h2>
+
+    {% for bucle_jinja_detalle_proyecto_tareas in ref_html_detalle_proyecto_tareas %}
+
+    <article class="tipo_cartas">
+
+        <H2>TAREA: {{ bucle_jinja_detalle_proyecto_tareas.tab_tareas_col_nombre }} 
+            {% if bucle_jinja_detalle_proyecto_tareas.tab_tareas_col_terminado == False %}
+            📝 {% else %} 🔴 {% endif %}</H2> 
+        <h4>DESCRIPCIÓN: {{ bucle_jinja_detalle_proyecto_tareas.tab_tareas_col_descripcion }}</h4>
+        <h5>ESTATUS: {% if bucle_jinja_detalle_proyecto_tareas.tab_tareas_col_terminado == False %} EN PROCESO {% else %} TERMINADO {% endif %}</h5>
+
+    </article>
+
+    {% endfor %}
+    {% endblock %}
+    
+</body>
+</html>

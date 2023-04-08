@@ -1,0 +1,34 @@
+/* CREAMOS ESTE ARCHIVO DENTRO DE STATIC 
+. body {} solo afecta etiquetas body en archivo html donde tenga la referencia
+. la ref va desde este archivo css, al base html con jinja load static/ static 'main/css.css', y como es la base afecta a los html referenciados en base
+*/
+
+/*body no se puede asignar clase/identificador, debe incluirse en link CSS*/
+body{ background: #202020; color: whitesmoke;}
+
+/*.nombre establece clase en etiqueta específica y aplica sin afectar otra seccion
+. padding: relleno agregar o quitar*/
+.barra_navegacion_global{ background: darkslateblue; padding: 20px 10px; max-width: 1400px; margin: auto; margin-block: 10px;}
+
+/*referencia global, afecta específico 'ul: crear lista'*/
+.barra_navegacion_global ul { display: flex; justify-content: space-evenly;}
+
+/*referencia global, afecta específico, x herarquia 'ul li: define elemento lista'
+. list-style: quita bullet points en este caso*/
+.barra_navegacion_global ul li { list-style: none;}
+
+/*referencia global, afecta específico, x herarquia 'ul li a: link'*/
+.barra_navegacion_global ul li a { color: cadetblue; text-decoration: none;}
+
+/*referencia global, afecta específico, x herarquia 'ul li a: link'.
+:hover: (junto a etiqueta) estilo aplique pasar mouse/ diferentes acciones a usar*/
+.barra_navegacion_global ul li a:hover{ color: white;}
+
+.contenedor {max-width: 1400px; margin: auto; padding: 10px 10px; background: darkslategray;}
+
+.tipo_cartas{background: whitesmoke; margin: auto; padding: 15px 30px; color: black;margin-block: 20px;}
+
+.formulario{background: wheat; color: black; padding: 10px; text-align: center; display: block;}
+
+
+

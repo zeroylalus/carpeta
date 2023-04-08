@@ -23,6 +23,8 @@ from .views import view_funcion_tareas
 from .views import view_funcion_crear_tarea
 from .views import view_funcion_crear_proyecto
 
+from .views import view_funcion_detalle_proyecto
+
 
 urlpatterns = [
 
@@ -33,15 +35,17 @@ urlpatterns = [
 
     # rutas de datos:
 
-    path('',view_funcion_index),
-    path('ruta_acerca_de/', view_funcion_acerca_de),
+    path('',view_funcion_index, name='url name index'),
+    path('ruta_acerca_de/', view_funcion_acerca_de, name='url name acerca de'),
 
     # rutas que van a recibir y enviar información:
 
-    path('ruta_proyectos/',view_funcion_proyectos),
-    path('ruta_tareas/',view_funcion_tareas),
+    path('ruta_proyectos/',view_funcion_proyectos, name='url name proyectos'),
+    path('ruta_tareas/',view_funcion_tareas, name='url name tareas'),
 
-    path('ruta_crear_tarea/',view_funcion_crear_tarea),
-    path('ruta_crear_proyecto/',view_funcion_crear_proyecto),
+    path('ruta_crear_tarea/',view_funcion_crear_tarea, name='url name crear tarea'),
+    path('ruta_crear_proyecto/',view_funcion_crear_proyecto, name='url name crear proyecto'),
+
+    path('ruta_proyectos/<int:detalle_proyecto>',view_funcion_detalle_proyecto, name='url name detalle proyecto'),
 
 ]

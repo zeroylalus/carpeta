@@ -7,7 +7,10 @@
 . especificar en este archivo donde va a ir el contenido que ya tenian las otras páginas
 
 . BLOCK: decirle que en esta seccion habra mas contenido y así la pagina que lo herede podra insertar en esa parte su contenido
--->
+
+. <li><a href="/ruta_acerca_de">INICIO</a></li> no se puede quedar así por que facilmente puede cambiar la url, identificacion para no crear conflicto...
+. solo hasta crear CSS estableció <title>título</title> 
+. especificamos antes de debe load static, jinja link ruta archivo css-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,17 +22,22 @@
 </head>
 <body>
 
-    <nav><ul>
-        <li><a href="/">INICIO</a></li>
-        <li><a href="/ruta_tareas">TAREAS</a></li>
-        <li><a href="/ruta_proyectos">PROYECTOS</a></li>
-        <li><a href="/ruta_crear_tarea">CREAR TAREA</a></li>
-        <li><a href="/ruta_crear_proyecto">CREAR PROYECTO</a></li>
-        <li><a href="/ruta_acerca_de">ACERCA DE</a></li>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'archivos css/css principal.css' %}">
+
+    <nav class="barra_navegacion_global"><ul>
+        <li><a href="{% url 'url name index' %}">INICIO</a></li>
+        <li><a href="{% url 'url name tareas' %}">TAREAS</a></li>
+        <li><a href="{% url 'url name proyectos' %}">PROYECTOS</a></li>
+        <li><a href="{% url 'url name crear tarea' %}">CREAR TAREA</a></li>
+        <li><a href="{% url 'url name crear proyecto' %}">CREAR PROYECTO</a></li>
+        <li><a href="{% url 'url name acerca de' %}">ACERCA DE</a></li>
     </ul></nav>
 
-    {% block var_bloque_inicio_contenido %}
-    {% endblock %}
+    <main class="contenedor">
+        {% block var_bloque_inicio_contenido %}
+        {% endblock %}
+    </main>
     
 </body>
 </html>

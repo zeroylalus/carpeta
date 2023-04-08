@@ -50,8 +50,14 @@ crear un DIV > luego A > luego botones
 
     <h1>PROYECTOS.HTML</h1>
 
+    <!-- primero es el url y despues el 2do parámetro es id pero no nombre_id, será que id es una propiedad que se puede usar en esta sintaxis a diferencia de filter-->
+
     {% for bucle_jinja_proyectos in ref_html_proyectos %}
-    <article><h2>{{ bucle_jinja_proyectos.tab_proyectos_col_nombres }}</h2></article>
+    <article class="tipo_cartas">
+        <a href="{% url 'url name detalle proyecto' bucle_jinja_proyectos.id %}">
+            <h2>{{ bucle_jinja_proyectos.tab_proyectos_col_nombres }}</h2>
+        </a>
+    </article>
     {% endfor %}
 
     {% endblock %}

@@ -96,6 +96,11 @@ ORGANIGRAMA:
 . en app en templates en archivo templete creamos jinja loop/conditionals para mostrar elementos de los modelos
 . en app creamos carpeta diseños y archivo base y creamos con etiquetas nav,ul,li,a una navegación y con el metodo block/endblock de jinja referenciamos donde estará el contenido de archivo templete
 . en app en templates en archivo templete usamos el método extends de jinja para referenciar la navegacion de archivo base y agregamos block/endblock para referenciar donde estara el contenido
+. an app creamos archivo formularios, donde creamos la clase para ingresar datos desde la clase forms de django, y lo referenciamos en en archivo templete, usando etiqueta form com method POST, y agregamos metodo csrf_token de jinja
+. en app en views en la función agregamos una condicional if si el request method es igual a get renderizamos el contenido, de lo contrario se crearía un nuevo objeto en el modelo con los datos del input delformulario y con metodo redirect se redirecciona a la lista de proyectos
+. en app creamos carpeta static para agregar imagenes, pdf, etc a archivo templete
+. en app en static creamos carpeta css y archivo css y agregamos estilos
+. en app en templete referenciamos con jinja load static/ static 'css/css.css' para agregar estilos al archivo html 
 
 -------------------------------
 
